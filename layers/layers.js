@@ -3,6 +3,7 @@ var wms_layers = [];
 
         var lyr_OpenStreetMap_0 = new ol.layer.Tile({
             'title': 'OpenStreetMap',
+            'type':'base',
             'opacity': 1.000000,
             
             
@@ -11,32 +12,32 @@ var wms_layers = [];
                 url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
             })
         });
-var format_uscities_mainland_1 = new ol.format.GeoJSON();
-var features_uscities_mainland_1 = format_uscities_mainland_1.readFeatures(json_uscities_mainland_1, 
+var format_sig_1 = new ol.format.GeoJSON();
+var features_sig_1 = format_sig_1.readFeatures(json_sig_1, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-var jsonSource_uscities_mainland_1 = new ol.source.Vector({
+var jsonSource_sig_1 = new ol.source.Vector({
     attributions: ' ',
 });
-jsonSource_uscities_mainland_1.addFeatures(features_uscities_mainland_1);
-var lyr_uscities_mainland_1 = new ol.layer.Vector({
+jsonSource_sig_1.addFeatures(features_sig_1);
+var lyr_sig_1 = new ol.layer.Vector({
                 declutter: false,
-                source:jsonSource_uscities_mainland_1, 
-                style: style_uscities_mainland_1,
-                popuplayertitle: 'uscities_mainland',
+                source:jsonSource_sig_1, 
+                style: style_sig_1,
+                popuplayertitle: 'sig',
                 interactive: true,
-    title: 'uscities_mainland<br />\
-    <img src="styles/legend/uscities_mainland_1_0.png" /> 75 - 600<br />\
-    <img src="styles/legend/uscities_mainland_1_1.png" /> 600 - 5000<br />\
-    <img src="styles/legend/uscities_mainland_1_2.png" /> 5000 - 15000<br />\
-    <img src="styles/legend/uscities_mainland_1_3.png" /> 15000 - 50000<br />\
-    <img src="styles/legend/uscities_mainland_1_4.png" /> 50000 - 150000<br />'
+    title: 'sig<br />\
+    <img src="styles/legend/sig_1_0.png" /> 20 - 48<br />\
+    <img src="styles/legend/sig_1_1.png" /> 48 - 67.6<br />\
+    <img src="styles/legend/sig_1_2.png" /> 67.6 - 80.4<br />\
+    <img src="styles/legend/sig_1_3.png" /> 80.4 - 87.6<br />\
+    <img src="styles/legend/sig_1_4.png" /> 87.6 - 90<br />'
         });
 
-lyr_OpenStreetMap_0.setVisible(true);lyr_uscities_mainland_1.setVisible(true);
-var layersList = [lyr_OpenStreetMap_0,lyr_uscities_mainland_1];
-lyr_uscities_mainland_1.set('fieldAliases', {'city': 'city', 'state_id': 'state_id', 'state_name': 'state_name', 'lat': 'lat', 'lng': 'lng', 'population': 'population', 'density': 'density', 'timezone': 'timezone', 'sunrise_lo': 'sunrise_lo', 'sunset_lon': 'sunset_lon', 'sunrise_sh': 'sunrise_sh', 'sunset_sho': 'sunset_sho', 'day_length': 'day_length', 'night_leng': 'night_leng', 'daylight': 'daylight', 'max_pop': 'max_pop', 'max_sunset': 'max_sunset', });
-lyr_uscities_mainland_1.set('fieldImages', {'city': 'TextEdit', 'state_id': 'TextEdit', 'state_name': 'TextEdit', 'lat': 'TextEdit', 'lng': 'TextEdit', 'population': 'TextEdit', 'density': 'TextEdit', 'timezone': 'TextEdit', 'sunrise_lo': 'TextEdit', 'sunset_lon': 'TextEdit', 'sunrise_sh': 'TextEdit', 'sunset_sho': 'TextEdit', 'day_length': 'TextEdit', 'night_leng': 'TextEdit', 'daylight': 'TextEdit', 'max_pop': 'TextEdit', 'max_sunset': 'TextEdit', });
-lyr_uscities_mainland_1.set('fieldLabels', {'city': 'no label', 'state_id': 'no label', 'state_name': 'no label', 'lat': 'no label', 'lng': 'no label', 'population': 'no label', 'density': 'no label', 'timezone': 'no label', 'sunrise_lo': 'no label', 'sunset_lon': 'no label', 'sunrise_sh': 'no label', 'sunset_sho': 'no label', 'day_length': 'no label', 'night_leng': 'no label', 'daylight': 'no label', 'max_pop': 'no label', 'max_sunset': 'no label', });
-lyr_uscities_mainland_1.on('precompose', function(evt) {
+lyr_OpenStreetMap_0.setVisible(true);lyr_sig_1.setVisible(true);
+var layersList = [lyr_OpenStreetMap_0,lyr_sig_1];
+lyr_sig_1.set('fieldAliases', {'lintang(longitude)': 'lintang(longitude)', 'bujur(latitude)': 'bujur(latitude)', 'nama': 'nama', 'jumlah naungan': 'jumlah naungan', });
+lyr_sig_1.set('fieldImages', {'lintang(longitude)': 'TextEdit', 'bujur(latitude)': 'TextEdit', 'nama': 'TextEdit', 'jumlah naungan': 'Range', });
+lyr_sig_1.set('fieldLabels', {'lintang(longitude)': 'no label', 'bujur(latitude)': 'no label', 'nama': 'no label', 'jumlah naungan': 'no label', });
+lyr_sig_1.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
